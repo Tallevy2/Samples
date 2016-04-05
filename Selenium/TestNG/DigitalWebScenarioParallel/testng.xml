@@ -23,7 +23,7 @@
 	</test>
 	<test name="Test iPhone6 Plus">
 		<parameter name="platformName" value="iOS" />
-		<parameter name="platformVersion" value="8.3" />
+		<parameter name="platformVersion" value="9.3.1" />
 		<parameter name="browserName" value="mobileOS" />
 		<parameter name="browserVersion" value="" />		
 		<parameter name="screenResolution" value="" />
