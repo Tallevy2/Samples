@@ -5,8 +5,8 @@ The project uses the canonical [TodoMVC](http://todomvc.com/) as the application
 
 Detailed instructions on running the examples can be found by framework:
 
-- [TestNG sample](testng-sample/testng.md)
-- [JUnit sample](junit-sample/junit.md)
+- [TestNG sample](testng-sample/README.md)
+- [JUnit sample](junit-sample/README.md)
 
 # Running locally during test authoring
 Test authoring phase is performed using a local FirefoxDriver instance. During this phase the reportium client outputs its messages to the command line.
