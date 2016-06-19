@@ -12,7 +12,7 @@ Detailed instructions on running the examples can be found by framework:
 # Running locally during test authoring
 Test authoring phase is performed using a local FirefoxDriver instance. During this phase the reporting client outputs its messages to the command line.
 
-The choice of WebDriver to create is controlled by the _is-ocal-driver_ environment variable, whose default value is <code>true</code>.
+The choice of WebDriver to create is controlled by the _is-local-driver_ environment variable, whose default value is <code>true</code>.
 
 In order to run the tests using a remote Selenium grid and Perfecto's Reporting solution set the variable's value to <code>false</code>
 
