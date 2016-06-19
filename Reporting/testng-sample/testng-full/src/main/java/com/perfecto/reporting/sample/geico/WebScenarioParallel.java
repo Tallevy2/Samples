@@ -58,7 +58,7 @@ public class WebScenarioParallel {
 
     @BeforeMethod
     public void beforeTest(Method method) {
-        String testName = method.getDeclaringClass().getName() + "::" + method.getName();
+        String testName = method.getDeclaringClass().getSimpleName() + "::" + method.getName();
         reportiumClient.testStart(testName, new TestContext());
     }
 
