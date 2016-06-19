@@ -2,9 +2,9 @@ package com.perfecto.reporting.sample.geico;
 
 import com.perfecto.reportium.client.ReportiumClient;
 import com.perfecto.reportium.client.ReportiumClientFactory;
-import com.perfecto.reportium.connection.Connection;
 import com.perfecto.reportium.exception.ReportiumException;
-import com.perfecto.reportium.model.*;
+import com.perfecto.reportium.model.Job;
+import com.perfecto.reportium.model.PerfectoExecutionContext;
 import com.perfecto.reportium.test.TestContext;
 import com.perfecto.reportium.test.result.TestResultFactory;
 import org.openqa.selenium.By;
@@ -26,15 +26,6 @@ public class WebScenarioParallel {
     // Create Remote WebDriver based on testng.xml configuration
     protected ReportiumClient reportiumClient;
 
-    protected Connection getConnection() {
-        String tenant = System.getProperty("reportium-tenant", "10000001");
-
-        return new Connection(
-                "eyJhbGciOiJSUzI1NiJ9.eyJqdGkiOiIwMjI0MjA1NS1lNDUwLTQ5MjktYjRmOS0zYjEwYjQ1NzdmOTAiLCJleHAiOjAsIm5iZiI6MCwiaWF0IjoxNDYzOTUyMjk0LCJpc3MiOiJodHRwOi8vMTAwLjEyNy41LjM5L2F1dGgvcmVhbG1zL29wZXJhdG9yIiwiYXVkIjoicmVwb3J0aXVtIiwic3ViIjoiNDA1YzhmZDctM2RlOS00MGZiLTg3N2YtNmYzZmE3YTQzZjEwIiwidHlwIjoiT2ZmbGluZSIsImF6cCI6InJlcG9ydGl1bSIsInNlc3Npb25fc3RhdGUiOiJiM2RiNjFmNC01NjVjLTQyODAtYjEwMi05NDkzMTY0ODhkZTAiLCJjbGllbnRfc2Vzc2lvbiI6Ijg0ZDllMDhlLTNlNTctNGUyZi04YWUwLTdmZDQzOWQ1NGMwZiIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJ2aWV3LXByb2ZpbGUiXX19fQ.A2qa290-cvq4ZOjjevfzwmxa1gqXkb8ygceALdSsGwyHfjOODSZriJsqPhu2c5LEHjOw3VXD4ZprWSwOT54zE_8LdrT55k1BVkIGlFj56SN1q2A3HRRN0x0H5AqzQpn78dNqw2jlAYLZyl6aIUMmSBKBt9VMw-J2Q-TeYQ29NwOyvMLquzVDMPPZ8WrrXifE0EGTt8--b1gtR7sSa25U0S-CmLBWNrjzEeMbgjH1MRVYx3BVbo6m0GaSQ6attIrKXq-B1ehzbJYPkAuz74w1zC-nn82Wk7GmDGYw9bOWx63uusy0FIWekIiqQ9y_Ado3h_PYxxxypZWuiswzrnTK0g",
-                tenant
-        );
-    }
-
     private String platformName;
     private String platformVersion;
     private String browserName;
@@ -55,6 +46,7 @@ public class WebScenarioParallel {
         this.screenResolution = screenResolution;
         this.location = location;
         this.deviceType = deviceType;
+        reportiumClient = createReportium(driver);
     }
 
     @AfterClass
@@ -67,7 +59,6 @@ public class WebScenarioParallel {
     @BeforeMethod
     public void beforeTest(Method method) {
         String testName = method.getDeclaringClass().getName() + "::" + method.getName();
-        reportiumClient = createReportium();
         reportiumClient.testStart(testName, new TestContext());
     }
 
@@ -91,24 +82,13 @@ public class WebScenarioParallel {
         }
     }
 
-    private ReportiumClient createReportium() {
-        BrowserInfo browserInfo = new BrowserInfo(browserName, browserVersion);
-        Platform platform = new Platform.PlatformBuilder()
-                .withOs(OperatingSystem.valueOf(platformName))
-                .withOsVersion(platformVersion)
-                .withBrowserInfo(browserInfo)
-                .withScreenResolution(screenResolution)
-                .withLocation(location)
-                .withDeviceId("MyFakeDeviceId")
-                .withDeviceType(DeviceType.valueOf(deviceType))
+    private static ReportiumClient createReportium(WebDriver driver) {
+        PerfectoExecutionContext perfectoExecutionContext =
+                new PerfectoExecutionContext.PerfectoExecutionContextBuilder()
+                .withJob(new Job("CI job name from environment variable", 123 /*build number from environment variable */))
+                .withWebDriver(driver)
                 .build();
-        ExecutionContext executionContext = new ExecutionContext.ExecutionContextBuilder()
-                .withContextTags("Reportium_sample_project")
-                .withPlatforms(platform)
-                .build();
-        reportiumClient = new ReportiumClientFactory().createReportiumClient(getConnection(), executionContext);
-
-        return reportiumClient;
+        return new ReportiumClientFactory().createPerfectoReportiumClient(perfectoExecutionContext);
     }
 
     @Test
