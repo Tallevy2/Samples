@@ -24,11 +24,19 @@ System.out.println("Report URL - " + reportiumClient.getReportUrl());
 
 # Jenkins integration
 
-## Passing job details to Reporting
+## Grouping tests by job & build in Reporting
+In order to view tests grouped by continuous integration system job and build, you need to provide the job name and build number into reporting as system variables.
+This will enable you to group your test executions in reporting first by job name and then by build number, providing you a complete overview of the build quality.
+
+You can also add context tags thru the JVM parameters.
+
+If you are running your tests using Maven or Ivy, you need to add the following JVM parameters:
+
+> -Dreportium-job-name=${JOB_NAME} -Dreportium-job-number=${BUILD_NUMBER} -Dreportium-tags=<optional tags, separated by commas>
 
 
 ## Adding a direct link to the report to the build page
-You can add a dynamically generated link to the report for a given Jenkins job by using the [GRoovy Postbuild Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Groovy+Postbuild+Plugin).
+You can add a dynamically generated link to the report for a given Jenkins job by using the [Groovy Postbuild Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Groovy+Postbuild+Plugin).
  
 The script should include the following code:
 
@@ -37,7 +45,7 @@ jobName = manager.build.getProject().getName()
 buildNumber = manager.build.getNumber()
  
 summary = manager.createSummary("graph.gif")
-summary.appendText("<a href=\"https://reporting.perfectomobile.com/?TENANTID=10000001&jobName=${jobName}&jobNumber=${buildNumber}\">Perfecto Test Report</a>", false)
+summary.appendText("<a href=\"https://reporting.perfectomobile.com/?TENANTID=<<my tenant name>>&jobName[0]=${jobName}&jobNumber[0]=${buildNumber}\">Perfecto Test Report</a>", false)
 ```
 
 
