@@ -3,7 +3,6 @@ package com.perfecto.reporting.sample.geico;
 import com.perfecto.reportium.client.ReportiumClient;
 import com.perfecto.reportium.client.ReportiumClientFactory;
 import com.perfecto.reportium.exception.ReportiumException;
-import com.perfecto.reportium.model.Job;
 import com.perfecto.reportium.model.PerfectoExecutionContext;
 import com.perfecto.reportium.test.TestContext;
 import com.perfecto.reportium.test.result.TestResultFactory;
@@ -58,7 +57,7 @@ public class WebScenarioParallel {
 
     @BeforeMethod
     public void beforeTest(Method method) {
-        String testName = method.getDeclaringClass().getSimpleName() + "::" + method.getName();
+        String testName = method.getDeclaringClass().getSimpleName() + "." + method.getName();
         reportiumClient.testStart(testName, new TestContext());
     }
 
@@ -85,7 +84,6 @@ public class WebScenarioParallel {
     private static ReportiumClient createReportium(WebDriver driver) {
         PerfectoExecutionContext perfectoExecutionContext =
                 new PerfectoExecutionContext.PerfectoExecutionContextBuilder()
-                .withJob(new Job("CI job name from environment variable", 123 /*build number from environment variable */))
                 .withWebDriver(driver)
                 .build();
         return new ReportiumClientFactory().createPerfectoReportiumClient(perfectoExecutionContext);
@@ -93,8 +91,6 @@ public class WebScenarioParallel {
 
     @Test
     public void searchGoogle() throws MalformedURLException {
-
-        reportiumClient.testStart("WevbScanrioParallel", new TestContext());
 
         reportiumClient.testStep("Navigate to Google webpage");
         driver.get("http://www.google.com");
@@ -117,8 +113,6 @@ public class WebScenarioParallel {
     // Test Method, navigate to Geico and get insurance quote
     @Test
     public void geicoInsurance() throws MalformedURLException {
-
-        reportiumClient.testStart("navigate to Geico and get insurance quote", new TestContext());
 
         reportiumClient.testStep("Navigate to Geico webpage");
         driver.get("http://www.geico.com");
@@ -152,11 +146,6 @@ public class WebScenarioParallel {
         current.selectByVisibleText("Other");
         driver.findElement(By.id("btnSubmit")).click();
 
-        reportiumClient.testStop(TestResultFactory.createSuccess());
-
         System.out.println("Done: geicoInsurance");
-
     }
-
-
 }

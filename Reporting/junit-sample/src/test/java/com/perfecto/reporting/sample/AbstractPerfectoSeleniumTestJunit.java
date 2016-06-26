@@ -10,6 +10,7 @@ import com.perfecto.reportium.test.result.TestResultFactory;
 import org.junit.AssumptionViolatedException;
 import org.junit.ClassRule;
 import org.junit.Rule;
+import org.junit.experimental.categories.Category;
 import org.junit.rules.ExternalResource;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
@@ -81,8 +82,28 @@ public class AbstractPerfectoSeleniumTestJunit {
 
         @Override
         protected void starting(Description description) {
-            String testName = description.getDisplayName();
-            reportiumClient.testStart(testName, new TestContext());
+            try {
+                String testName = description.getTestClass().getSimpleName() + "." + description.getMethodName();
+                // Get JUnit group name
+                Category categoryAnnotation = description.getTestClass().getAnnotation(Category.class);
+                TestContext testContext;
+
+                if (categoryAnnotation != null) {
+                    // Add category value as a tag
+                    Class<?>[] categoryClasses = categoryAnnotation.value();
+                    String[] tags = new String[categoryClasses.length];
+                    for (int i = 0; i < categoryClasses.length; i++) {
+                        tags[i] = categoryClasses[i].getSimpleName();
+                    }
+                    testContext = new TestContext(tags);
+                } else {
+                    testContext = new TestContext();
+                }
+                reportiumClient.testStart(testName, testContext);
+            } catch (RuntimeException e) {
+                System.err.println("Failed to submit test start to reportium: " + e.getMessage());
+                throw e;
+            }
         }
     };
 

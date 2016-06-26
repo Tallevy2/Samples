@@ -60,7 +60,7 @@ public class AbstractPerfectoSeleniumTestNG {
 
     @BeforeMethod(alwaysRun = true)
     public void beforeTest(Method method) {
-        String testName = method.getDeclaringClass().getSimpleName() + "::" + method.getName();
+        String testName = method.getDeclaringClass().getSimpleName() + "." + method.getName();
         reportiumClient.testStart(testName, new TestContext());
     }
 
