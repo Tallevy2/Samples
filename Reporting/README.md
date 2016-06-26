@@ -5,8 +5,8 @@ The project uses the canonical [TodoMVC](http://todomvc.com/) as the application
 
 Detailed instructions on running the examples can be found by framework:
 
-- [TestNG sample](testng-sample/testng.md)
-- [JUnit sample](junit-sample/junit.md)
+- [TestNG sample](testng-sample)
+- [JUnit sample](junit-sample)
 - [Main sample](main-sample)
 
 # Running locally during test authoring
