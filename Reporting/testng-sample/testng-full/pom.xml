@@ -28,6 +28,11 @@
 
         <dependency>
             <groupId>com.perfecto.reporting-sdk</groupId>
+            <artifactId>reportium-java-annotations</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.perfecto.reporting-sdk</groupId>
             <artifactId>reportium-testng</artifactId>
         </dependency>
 

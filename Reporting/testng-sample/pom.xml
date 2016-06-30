@@ -9,6 +9,7 @@
     <modules>
         <module>testng-full</module>
         <module>testng-listener-only</module>
+        <module>../appium-sample</module>
     </modules>
 
     <groupId>com.perfecto.reporting-sdk</groupId>
@@ -23,7 +24,7 @@
         <selenium.version>2.53.0</selenium.version>
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
         <commons-logging.version>1.2</commons-logging.version>
-        <reportium-sdk.version>0.0.8</reportium-sdk.version>
+        <reportium-sdk.version>0.0.23</reportium-sdk.version>
 
         <allure.version>1.4.4</allure.version>
 
@@ -35,6 +36,12 @@
             <dependency>
                 <groupId>com.perfecto.reporting-sdk</groupId>
                 <artifactId>reportium-java</artifactId>
+                <version>${reportium-sdk.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.perfecto.reporting-sdk</groupId>
+                <artifactId>reportium-java-annotations</artifactId>
                 <version>${reportium-sdk.version}</version>
             </dependency>
 
