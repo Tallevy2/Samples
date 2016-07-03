@@ -82,6 +82,16 @@
                 <reportsDirectory>regression</reportsDirectory>
             </properties>
         </profile>
+        <profile>
+            <id>geico</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suiteXmlFile>testng-geico.xml</suiteXmlFile>
+                <reportsDirectory>geico</reportsDirectory>
+            </properties>
+        </profile>
     </profiles>
 
     <build>
