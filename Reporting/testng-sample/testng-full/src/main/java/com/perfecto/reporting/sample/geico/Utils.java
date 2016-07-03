@@ -27,7 +27,7 @@ public class Utils {
         capabilities.setCapability("browserVersion", browserVersion);
 
         // Define test name
-        capabilities.setCapability("scriptName", "Webinar-SeleniumAcrossDigital");
+        capabilities.setCapability("scriptName", "Reporting-DeploymentVerification");
 
         if (!screenResolution.isEmpty()) {
             capabilities.setCapability("resolution", screenResolution);
