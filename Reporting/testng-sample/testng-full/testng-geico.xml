@@ -4,18 +4,18 @@
     <packages>
         <package name="com.perfecto.reporting.sample.todomvc.sanity.*"/>
     </packages>
-    <test name="Test Windows 7">
-        <parameter name="platformName" value="WINDOWS" />
-        <parameter name="platformVersion" value="7" />
-        <parameter name="browserName" value="Firefox" />
-        <parameter name="browserVersion" value="42" />
-        <parameter name="screenResolution" value="1366x768" />
-        <parameter name="location" value="US East" />
-        <parameter name="deviceType" value="DESKTOP" />
-        <classes>
-            <class name="com.perfecto.reporting.sample.geico.WebScenarioParallel" />
-        </classes>
-    </test>
+    <!--<test name="Test Windows 7">-->
+        <!--<parameter name="platformName" value="WINDOWS" />-->
+        <!--<parameter name="platformVersion" value="7" />-->
+        <!--<parameter name="browserName" value="Firefox" />-->
+        <!--<parameter name="browserVersion" value="42" />-->
+        <!--<parameter name="screenResolution" value="1366x768" />-->
+        <!--<parameter name="location" value="US East" />-->
+        <!--<parameter name="deviceType" value="DESKTOP" />-->
+        <!--<classes>-->
+            <!--<class name="com.perfecto.reporting.sample.geico.WebScenarioParallel" />-->
+        <!--</classes>-->
+    <!--</test>-->
     <!--<test name="Test Windows 8.1">-->
         <!--<parameter name="platformName" value="Windows" />-->
         <!--<parameter name="platformVersion" value="8.1" />-->
@@ -26,16 +26,16 @@
             <!--<class name="com.perfecto.reporting.sample.geico.WebScenarioParallel" />-->
         <!--</classes>-->
     <!--</test>-->
-    <!--<test name="Test iPhone6 Plus">-->
-        <!--<parameter name="platformName" value="iOS" />-->
-        <!--<parameter name="platformVersion" value="" />-->
-        <!--<parameter name="browserName" value="mobileOS" />-->
-        <!--<parameter name="browserVersion" value="" />-->
-        <!--<parameter name="screenResolution" value="" />-->
-        <!--<classes>-->
-            <!--<class name="com.perfecto.reporting.sample.geico.WebScenarioParallel" />-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="Test iPhone6 Plus">
+        <parameter name="platformName" value="iOS" />
+        <parameter name="platformVersion" value="" />
+        <parameter name="browserName" value="mobileOS" />
+        <parameter name="browserVersion" value="" />
+        <parameter name="screenResolution" value="" />
+        <classes>
+            <class name="com.perfecto.reporting.sample.geico.WebScenarioParallel" />
+        </classes>
+    </test>
     <!--<test name="Test Galaxy S6">-->
         <!--<parameter name="platformName" value="Android" />-->
         <!--<parameter name="platformVersion" value="" />-->
