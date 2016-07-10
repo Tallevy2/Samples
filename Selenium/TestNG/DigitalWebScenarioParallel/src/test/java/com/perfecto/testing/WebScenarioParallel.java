@@ -56,7 +56,6 @@ public class WebScenarioParallel {
 		try {
 			Select type = new Select(driver.findElement(By.id("insurancetype")));
 			type.selectByVisibleText("Motorcycle");
-			
 		//In case geico site appear in mobile version
 		}catch(Exception ex){
 			driver.findElement(By.xpath("//*[@id= 'motorcycle']")).click();;
