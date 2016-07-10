@@ -50,6 +50,7 @@ public class WebScenarioParallel {
 
 	@Test
 	// Test Method, navigate to Geico and get insurance quote
+	@Test
 	public void geicoInsurance() throws MalformedURLException {
 
 		driver.get("http://www.geico.com");
