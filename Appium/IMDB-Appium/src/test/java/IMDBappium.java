@@ -27,9 +27,9 @@ public class IMDBappium {
 	final int 		interval = 30000; // The interval of time to watch the trailer. *currently 30 seconds.
 	
 	//TODO: Change my user , password and host cloud URL.
-	final String user = "daniela@perfectomobile.com";
-	final String pass = "Shelby1967";
-	final String host = "demo.perfectomobile.com";
+	final String user = "My_User";
+	final String pass = "My_Pass";
+	final String host = "My_Host.perfectomobile.com";
 	
 	
 	@Parameters({"deviceName" , "platformName" })
