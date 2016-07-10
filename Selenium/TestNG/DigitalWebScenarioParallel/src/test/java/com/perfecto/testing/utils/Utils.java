@@ -12,9 +12,9 @@ public class Utils {
 			String browserVersion, String screenResolution) throws MalformedURLException {
 	    
 		// Set cloud host and credentials values from CI, else use local values
-		String PERFECTO_HOST = System.getProperty("np.testHost", "MY_HOST.perfectomobile.com");
-		String PERFECTO_USER = System.getProperty("np.testUsername", "MY_USER@perfectomobile.com");
-		String PERFECTO_PASSWORD = System.getProperty("np.testPassword", "MY_PASSWORD");
+		String PERFECTO_HOST = System.getProperty("np.testHost", "demo.perfectomobile.com");
+		String PERFECTO_USER = System.getProperty("np.testUsername", "daniela@perfectomobile.com");
+		String PERFECTO_PASSWORD = System.getProperty("np.testPassword", "Shelby1967");
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("user", PERFECTO_USER);

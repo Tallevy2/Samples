@@ -49,37 +49,43 @@ public class WebScenarioParallel {
 	}
 
 	// Test Method, navigate to Geico and get insurance quote
-	@Test
 	public void geicoInsurance() throws MalformedURLException {
 
 		driver.get("http://www.geico.com");
 
 		try {
 			Select type = new Select(driver.findElement(By.id("insurancetype")));
-
 			type.selectByVisibleText("Motorcycle");
+			
+		//In case geico site appear in mobile version
+		}catch(Exception ex){
+			driver.findElement(By.xpath("//*[@id= 'motorcycle']")).click();;
+		}
+		
+		try{
 			driver.findElement(By.id("zip")).sendKeys("01434");
 			driver.findElement(By.id("submitButton")).click();
-
+	
 			driver.findElement(By.id("firstName")).sendKeys("MyFirstName");
 			driver.findElement(By.id("lastName")).sendKeys("MyFamilyName");
 			driver.findElement(By.id("street")).sendKeys("My Address");
-
+	
 			driver.findElement(By.id("date-monthdob")).sendKeys("8");
 			driver.findElement(By.id("date-daydob")).sendKeys("3");
 			driver.findElement(By.id("date-yeardob")).sendKeys("1981");
-
+	
 			driver.findElement(By.xpath("//*[@class='radio'][2]")).click();
 			driver.findElement(By.id("btnSubmit")).click();
-
+	
 			driver.findElement(By.id("hasCycle-error")).isDisplayed();
-
+	
 			Select hasCycle = new Select(driver.findElement(By.id("hasCycle")));
 			hasCycle.selectByIndex(1);
-
+	
 			Select current = new Select(driver.findElement(By.id("currentInsurance")));
 			current.selectByVisibleText("Other");
 			driver.findElement(By.id("btnSubmit")).click();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

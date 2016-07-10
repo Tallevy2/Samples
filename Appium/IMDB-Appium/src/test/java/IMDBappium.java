@@ -1,3 +1,4 @@
+package test.java;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -6,33 +7,29 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.SwipeElementDirection;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.ios.IOSElement;
 
 public class IMDBappium {
 	
 	AppiumDriver 	driver;
 	WebDriverWait	wait;
 	String 			os;
-	boolean 		signedIn = false;
 	final int 		interval = 30000; // The interval of time to watch the trailer. *currently 30 seconds.
 	
 	//TODO: Change my user , password and host cloud URL.
-	final String user = "My_User";
-	final String pass = "My_Pass";
-	final String host = "My_Cloud.perfectomobile.com";
+	final String user = "daniela@perfectomobile.com";
+	final String pass = "Shelby1967";
+	final String host = "demo.perfectomobile.com";
 	
 	
 	@Parameters({"deviceName" , "platformName" })
