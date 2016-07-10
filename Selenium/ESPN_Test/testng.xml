@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests">
+
+    <test name="Test Android">
+        <parameter name="user" value="My_User" />
+        <parameter name="password" value="My_Pass" />
+        <parameter name="host" value="My_Host.perfectomobile.com" />
+        <parameter name="ESPN_mail" value="My ESPN email" />
+        <parameter name="ESPN_Pass" value="My ESPN password" />
+        <parameter name="platformName" value="Android" />
+        <parameter name="model" value= "" />
+        <parameter name="browserName" value="mobileOS" />
+        <parameter name="location" value="NA-US-BOS" />
+        <classes>
+            <class name="Test_Main" />
+        </classes>
+    </test>
+
+    <test name="Test iOS">
+        <parameter name="user" value="My_User" />
+        <parameter name="password" value="My_Pass" />
+        <parameter name="host" value="My_Host.perfectomobile.com" />
+        <parameter name="ESPN_mail" value="My ESPN email" />
+        <parameter name="ESPN_Pass" value="My ESPN password" />
+        <parameter name="platformName" value="iOS" />
+        <parameter name="model" value= "" />
+        <parameter name="browserName" value="mobileOS" />
+        <parameter name="location" value="NA-US-BOS" />
+        <classes>
+            <class name="Test_Main" />
+        </classes>
+    </test>
+    
+</suite>
