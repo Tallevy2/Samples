@@ -7,23 +7,12 @@
 		<parameter name="platformVersion" value="8.1" />
 		<parameter name="browserName" value="Chrome" />
 		<parameter name="browserVersion" value="51" />		
-		<parameter name="screenResolution" value="1366x768" />
+		<parameter name="screenResolution" value="" />
 		<classes>
 			<class name="com.perfecto.testing.WebScenarioParallel" />
 		</classes>
 	</test>
 	
-	<test name="Test WebMachine2">
-		<parameter name="platformName" value="Windows" />
-		<parameter name="platformVersion" value="8.1" />
-		<parameter name="browserName" value="Chrome" />
-		<parameter name="browserVersion" value="51" />		
-		<parameter name="screenResolution" value="1366x768" />
-		<classes>
-			<class name="com.perfecto.testing.WebScenarioParallel" />
-		</classes>
-	</test>
-	<!--  
 	<test name="Test iPhone6 Plus">
 		<parameter name="platformName" value="iOS" />
 		<parameter name="platformVersion" value="" />
@@ -45,5 +34,5 @@
 			<class name="com.perfecto.testing.WebScenarioParallel" />
 		</classes>
 	</test>
-	-->
+	
 </suite>
