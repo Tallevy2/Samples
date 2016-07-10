@@ -48,7 +48,6 @@ public class WebScenarioParallel {
 		System.out.println("Done: searchGoogle");
 	}
 
-	@Test
 	// Test Method, navigate to Geico and get insurance quote
 	@Test
 	public void geicoInsurance() throws MalformedURLException {
