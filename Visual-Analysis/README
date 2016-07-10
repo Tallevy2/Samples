@@ -1,0 +1,7 @@
+This sample uses Visual Analysis to test the Google Maps web app. Srouce and destination addresses are specified,
+and driving diractions are requested, selecting the first route, for which the duration, distance, and route name are extarcted.
+
+Both text and image checkpoints are used, and imaged buttons are clicked.
+
+TO DO:
+set your lab, user, and password.
