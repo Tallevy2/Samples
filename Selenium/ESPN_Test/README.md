@@ -9,7 +9,6 @@ It includes testNG testing framework, Maven and Reportium.
 - Set your device capabilities at testng.xml file , DO NOT CHANGE THE DEVICE LOCATION (The scenario works only for espn global site).
 - Set your ESPN email and password (Register at www.espn.go.com).
 - Run from testng.xml as TestNG test.
-
 - Set the number of times the test should run by changing invocationCount parameter.
 
 ```java
