@@ -113,8 +113,8 @@ public class Test_Main {
 
             reportiumClient.testStep("Insert login info and press login button"); //TEST STEP - login session
             driver.switchTo().frame("disneyid-iframe"); // Switch to login frame
-            driver.findElement(By.xpath(PageObjects.Email)).sendKeys(this.email);
-            driver.findElement(By.xpath(PageObjects.password)).sendKeys(this.password);
+            driver.findElement(By.xpath(PageObjects.Email)).sendKeys(this.ESPN_email);
+            driver.findElement(By.xpath(PageObjects.password)).sendKeys(this.ESPN_password);
             driver.findElement(By.xpath(PageObjects.submit)).click();
 
             reportiumClient.testStep("LogOut"); //TEST STEP - logout session
