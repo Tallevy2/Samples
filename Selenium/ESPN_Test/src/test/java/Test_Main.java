@@ -28,11 +28,11 @@ public class Test_Main {
 
     //TODO: Set your Perfecto Lab user, password and host.
     //TODO: Set your ESPN email and password.
-    String ESPN_email			= System.getProperty("np.ESPNuser", "My_Email");
-    String ESPN_password		= System.getProperty("np.ESPNpassword", "My_Pass");
-    String PERFECTO_HOST 		= System.getProperty("np.testHost", "My_Host.perfectomobile.com");
-    String PERFECTO_USER 		= System.getProperty("np.testUsername", "My_User");
-    String PERFECTO_PASSWORD 	= System.getProperty("np.testPassword", "My_Pass");
+    String ESPN_EMAIL           = System.getProperty("np.ESPNuser", "My_Email");
+    String ESPN_PASSWORD        = System.getProperty("np.ESPNpassword", "My_Pass");
+    String PERFECTO_HOST        = System.getProperty("np.testHost", "My_Host.perfectomobile.com");
+    String PERFECTO_USER        = System.getProperty("np.testUsername", "My_User");
+    String PERFECTO_PASSWORD    = System.getProperty("np.testPassword", "My_Pass");
 
     //TODO: Insert your device capabilities at testng.XML file.
     @BeforeTest
