@@ -135,8 +135,9 @@ public class Test_Main {
             String reportURL = reportiumClient.getReportUrl();
             System.out.println(reportURL); //Print URL to console
 
-            if(Desktop.isDesktopSupported())
-                Desktop.getDesktop().browse(new URI(reportURL));
+            //TODO: Enable this couple of lines in order to open the browser with the report at the end of the test.
+            //if(Desktop.isDesktopSupported())
+              //  Desktop.getDesktop().browse(new URI(reportURL));
 
         }catch(Exception ex){
             ex.printStackTrace();
