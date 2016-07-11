@@ -26,10 +26,15 @@ public class Test_Main {
     RemoteWebDriver driver;
     ReportiumClient reportiumClient;
 
-    String email;
-    String password;
-    
-    //TODO: Insert your device capabilities and Perfecto lab info.
+    //TODO: Set your Perfecto Lab user, password and host.
+    //TODO: Set your ESPN email and password.
+    String ESPN_email			= System.getProperty("np.ESPNuser", "My_Email");
+    String ESPN_password		= System.getProperty("np.ESPNpassword", "My_Pass");
+    String PERFECTO_HOST 		= System.getProperty("np.testHost", "My_Host.perfectomobile.com");
+    String PERFECTO_USER 		= System.getProperty("np.testUsername", "My_User");
+    String PERFECTO_PASSWORD 	= System.getProperty("np.testPassword", "My_Pass");
+
+    //TODO: Insert your device capabilities at testng.XML file.
     @BeforeTest
     @Parameters({"platformName" , "model" , "browserName" , "location" , "host" , "user" , "password" , "ESPN_mail" , "ESPN_Pass"})
     public void beforMethod(String platformName, String model, String browserName, String location,
@@ -46,8 +51,8 @@ public class Test_Main {
         driver = new RemoteWebDriver(new URL("https://" + host + "/nexperience/perfectomobile/wd/hub") , capabilities);
         driver.manage().timeouts().implicitlyWait(15 , TimeUnit.SECONDS);
 
-        this.email = ESPN_mail;
-        this.password = ESPN_Pass;
+        this.ESPN_email = ESPN_mail;
+        this.ESPN_password = ESPN_Pass;
         
         //Create Reportium client.
         reportiumClient = new ReportiumClientFactory().createPerfectoReportiumClient(
