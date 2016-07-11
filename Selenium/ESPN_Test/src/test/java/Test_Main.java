@@ -36,23 +36,19 @@ public class Test_Main {
 
     //TODO: Insert your device capabilities at testng.XML file.
     @BeforeTest
-    @Parameters({"platformName" , "model" , "browserName" , "location" , "host" , "user" , "password" , "ESPN_mail" , "ESPN_Pass"})
-    public void beforMethod(String platformName, String model, String browserName, String location,
-    		String host, String user, String password , String ESPN_mail , String ESPN_Pass) throws MalformedURLException {
+    @Parameters({"platformName" , "model" , "browserName" , "location"})
+    public void beforMethod(String platformName, String model, String browserName, String location) throws MalformedURLException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("user" , user);
-        capabilities.setCapability("password" , password);
+        capabilities.setCapability("user" , PERFECTO_USER);
+        capabilities.setCapability("password" , PERFECTO_PASSWORD);
         capabilities.setCapability("platformName" , platformName);
         capabilities.setCapability("model" , model);
         capabilities.setCapability("browserName" , browserName);
         capabilities.setCapability("location" , location);
 
-        driver = new RemoteWebDriver(new URL("https://" + host + "/nexperience/perfectomobile/wd/hub") , capabilities);
+        driver = new RemoteWebDriver(new URL("https://" + PERFECTO_HOST + "/nexperience/perfectomobile/wd/hub") , capabilities);
         driver.manage().timeouts().implicitlyWait(15 , TimeUnit.SECONDS);
-
-        this.ESPN_email = ESPN_mail;
-        this.ESPN_password = ESPN_Pass;
         
         //Create Reportium client.
         reportiumClient = new ReportiumClientFactory().createPerfectoReportiumClient(

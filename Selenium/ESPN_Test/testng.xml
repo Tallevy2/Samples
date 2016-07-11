@@ -3,11 +3,6 @@
 <suite name="Suite" parallel="tests">
 
     <test name="Test Android">
-        <parameter name="user" value="My_User" />
-        <parameter name="password" value="My_Pass" />
-        <parameter name="host" value="My_Host.perfectomobile.com" />
-        <parameter name="ESPN_mail" value="My ESPN email" />
-        <parameter name="ESPN_Pass" value="My ESPN password" />
         <parameter name="platformName" value="Android" />
         <parameter name="model" value= "" />
         <parameter name="browserName" value="mobileOS" />
@@ -18,11 +13,6 @@
     </test>
 
     <test name="Test iOS">
-        <parameter name="user" value="My_User" />
-        <parameter name="password" value="My_Pass" />
-        <parameter name="host" value="My_Host.perfectomobile.com" />
-        <parameter name="ESPN_mail" value="My ESPN email" />
-        <parameter name="ESPN_Pass" value="My ESPN password" />
         <parameter name="platformName" value="iOS" />
         <parameter name="model" value= "" />
         <parameter name="browserName" value="mobileOS" />
