@@ -1,6 +1,6 @@
 ## ESPN Test - Selenium code sample
 
-This code sample shows how to create a multiply tests sessions on multiply devices parallel. 
+This code sample shows how to create a multiply tests sessions on multiply devices parallel.
 It includes testNG testing framework, Maven and Reportium. 
 
 **TODO:**
