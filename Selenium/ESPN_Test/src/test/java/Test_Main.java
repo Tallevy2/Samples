@@ -35,8 +35,8 @@ public class Test_Main {
     String PERFECTO_PASSWORD    = System.getProperty("np.testPassword", "My_Pass");
 
     //TODO: Insert your device capabilities at testng.XML file.
-    @BeforeTest
     @Parameters({"platformName" , "model" , "browserName" , "location"})
+    @BeforeTest
     public void beforMethod(String platformName, String model, String browserName, String location) throws MalformedURLException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
